@@ -38,15 +38,15 @@ export default function TextBox({heading,mode,showAlert}) {
   <label htmlFor="exampleFormControlTextarea1" className="form-label">{heading}</label>
   <textarea className="form-control" id="myBox" value={text} rows="8" onChange={handleOnChange} style= { {backgroundColor: mode==='light'? 'white':'grey',color: mode==='dark'?'white':'black' }}></textarea>
 
-  <button className="btn btn-primary my-3" onClick={handleUpSubmit}>Convert to Uppercase</button>
-  <button className="btn btn-primary my-3 mx-3" onClick={handleLoSubmit}> Convert to Lowercase</button>
-  <button className="btn btn-primary my-3 " onClick={handleClearSubmit}>Clear Text</button>
-  <button className="btn btn-primary mx-3" onClick={handleCopy}>Copy</button>
+  <button className="btn btn-primary mx-1 my-1" onClick={handleUpSubmit}>Convert to Uppercase</button>
+  <button className="btn btn-primary mx-1 my-1" onClick={handleLoSubmit}> Convert to Lowercase</button>
+  <button className="btn btn-primary mx-1 my-1 " onClick={handleClearSubmit}>Clear Text</button>
+  <button className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy</button>
 
 </div>
 <div className="container my-3" style={{color: mode==='dark'?'white':'black'}}>
   <h1>Your text summary</h1>
-  <p>{text.split(" ").length} words and {text.length} characters.</p>
+  <p>{text.split(" ").filter((element)=>{return element.length!=0}).length} words and {text.length} characters.</p>
   <h2>Preview</h2>
   <p>{text.length>0?text:"Enter something to preview"}</p>
 </div>
